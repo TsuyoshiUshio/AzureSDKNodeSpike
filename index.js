@@ -9,4 +9,12 @@ MsRest.interactiveLogin((err, credentials) => {
         if (err) return console.log(err);
         return console.log(result);
     });
+    let resourceGroupName = "AzureFunctionSpike";
+    let name = "YOUR_FUNCTION_APP_NAME_HERE";
+    let options = null;
+    let promise = client.webApps.getFunctionsAdminToken(resourceGroupName, name);
+    promise.then((message) => {
+        console.log(message);
+    });
+
 });
